@@ -1,4 +1,4 @@
-# vue-cli
+# vue-music
 
 > A Vue.js project
 
