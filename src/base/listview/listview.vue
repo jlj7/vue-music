@@ -4,7 +4,7 @@
       <li v-for="group in data" class="list-group" ref="listGroup">
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
-          <li v-for="item in group.items" class="list-group-item">
+          <li @click="selectItem(item)" v-for="item in group.items" class="list-group-item">
             <img v-lazy="item.avatar" class="avatar" alt="">
             <span class="name">{{item.name}}</span>
           </li>
@@ -115,6 +115,9 @@ export default {
       }
       this.scrollY = -this.listHeight[index]
       this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0) // 第二个参数是滚动的动画时间，这里不需要故设成0
+    },
+    selectItem (item) {
+      this.$emit('select', item)
     }
   },
   watch: {
